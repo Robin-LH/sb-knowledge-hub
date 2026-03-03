@@ -55,6 +55,18 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+      <head>
+        <script>
+          {`
+            var script = document.createElement("script");
+            script.id = "rum-script"; 
+            script.dataset.projectid = "T4-80eed53fa0"; 
+            script.type = "text/javascript"; 
+            script.src = "https://gateway-api.sitebeacon.io/v1/sb-script";
+            document.getElementsByTagName('body')[0].appendChild(script);
+          `}
+        </script>
+      </head>
       <body
         className={`${DMSans.variable} ${ClashDisplay.variable} ${Raleway.variable} ${SpaceGrotesk.variable} ${inter.variable}`}
       >
