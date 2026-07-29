@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FullSearchTrigger, SearchTrigger } from 'fumadocs-ui/layouts/shared/slots/search-trigger';
 import { ThemeSwitch } from 'fumadocs-ui/layouts/shared/slots/theme-switch';
@@ -34,11 +35,8 @@ export default function CustomHeader(props: React.ComponentPropsWithoutRef<'head
       {/* Mobile-only menu and brand trigger */}
       <div className="flex items-center gap-2.5 md:hidden">
         <SidebarTrigger className="-ms-1.5 p-2 text-fd-muted-foreground hover:text-fd-foreground cursor-pointer" />
-        <Link href="/" className="flex items-center gap-2 font-semibold text-fd-foreground">
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#005461] to-[#3bc1a8]">
-            <span className="text-xs font-bold text-white">SB</span>
-          </div>
-          <span className="text-sm font-semibold">SiteBeacon</span>
+        <Link href="/">
+          <Image src="/logo.png" alt="" height={70} width={200} className="w-auto h-7" />
         </Link>
       </div>
 

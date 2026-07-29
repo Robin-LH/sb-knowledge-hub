@@ -1,16 +1,17 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import {
+  Accessibility,
+  ArrowRight,
   BookOpen,
+  Gauge,
   GraduationCap,
   HelpCircle,
-  Sparkles,
-  Search,
-  ArrowRight,
-  Accessibility,
-  Gauge,
   Leaf,
+  Search,
+  Sparkles,
 } from 'lucide-react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'SiteBeacon Knowledge Hub',
@@ -90,11 +91,8 @@ export default function HomePage() {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-fd-border bg-fd-background/80 backdrop-blur-lg">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6">
-          <Link href="/" className="flex items-center gap-2.5 font-semibold text-fd-foreground">
-            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#005461] to-[#3bc1a8]">
-              <span className="text-xs font-bold text-white">SB</span>
-            </div>
-            <span className="hidden sm:inline">SiteBeacon</span>
+          <Link href="/">
+            <Image src={'/logo-white.png'} alt="" height={28} width={100} className="w-auto h-7" />
           </Link>
           <nav className="flex items-center gap-1 text-sm">
             <Link
@@ -126,12 +124,10 @@ export default function HomePage() {
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-fd-border bg-gradient-to-b from-fd-background to-fd-muted/30 px-4 py-20 sm:px-6 sm:py-28">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#005461]/5 via-transparent to-transparent" />
+      <section className="relative overflow-hidden border-b border-fd-border bg-linear-to-b from-fd-background to-fd-muted/30 px-4 py-20 sm:px-6 sm:py-28">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-brand/5 via-transparent to-transparent" />
         <div className="relative mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-sm font-medium tracking-wide text-[#0c7779] dark:text-[#3bc1a8]">
-            KNOWLEDGE HUB
-          </p>
+          <p className="mb-4 text-sm font-medium tracking-wide text-brand">KNOWLEDGE HUB</p>
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-fd-foreground sm:text-5xl lg:text-6xl">
             How can we help you?
           </h1>
