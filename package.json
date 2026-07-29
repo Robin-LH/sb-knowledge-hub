@@ -20,15 +20,19 @@
     "*.{js,jsx,ts,tsx,md,html,css,json}": "prettier --write"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/mdx": "^2.0.14",
     "clsx": "^2.1.1",
-    "lenis": "^1.1.1",
+    "fumadocs-core": "^16.13.0",
+    "fumadocs-mdx": "^15.2.0",
+    "fumadocs-ui": "^16.13.0",
+    "lucide-react": "^1.27.0",
     "next": "16.2.2",
     "next-themes": "^0.4.4",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "sharp": "^0.33.5",
-    "tailwind-merge": "^2.3.0",
-    "tw-elements-react": "^1.0.0-alpha2"
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -42,7 +46,7 @@
     "only-allow": "^1.2.1",
     "postcss": "^8",
     "prettier": "3.2.5",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5",
     "typescript-eslint": "^8.0.0"
   },

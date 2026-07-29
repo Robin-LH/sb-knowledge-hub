@@ -1,101 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import 'fumadocs-ui/css/neutral.css';
+@import 'fumadocs-ui/css/preset.css';
 
-@tailwind base;
+/* Scan Fumadocs UI components and content files for utility classes */
+@source '../node_modules/fumadocs-ui/dist/**/*.js';
+@source '../content/**/*.mdx';
+
+/*
+ * SiteBeacon design tokens.
+ * Integrated into Tailwind v4's CSS-first @theme system.
+ */
+@theme {
+  /* Brand palette */
+  --color-brand: #005461;
+  --color-brand-soft: #0c7779;
+  --color-brand-accent: #249e94;
+  --color-brand-light: #3bc1a8;
+
+  /* Typography */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Container */
+  --container-2xl: 1280px;
+}
+
+/*
+ * Base layer: global resets and defaults that apply to all pages.
+ */
 @layer base {
-  :root {
-    /* Core design tokens consumed by Tailwind theme mappings and component styles. */
-    --color-brand-1: #005461;
-    --color-brand-2: #0c7779;
-    --color-brand-3: #249e94;
-    --color-brand-4: #3bc1a8;
-
-    --color-neutral-0: #ffffff;
-    --color-neutral-1: #f2f2f2;
-    --color-neutral-2: #e6e6e6;
-    --color-neutral-3: #d9d9d9;
-    --color-neutral-4: #bfbfbf;
-    --color-neutral-5: #999999;
-    --color-neutral-6: #808080;
-    --color-neutral-7: #666666;
-    --color-neutral-8: #4d4d4d;
-    --color-neutral-9: #262626;
-    --color-neutral-10: #000000;
-
-    --color-brand: var(--color-brand-1);
-    --color-brand-soft: var(--color-brand-2);
-
-    --color-text: var(--color-neutral-9);
-    --color-text-muted: var(--color-neutral-6);
-    --color-text-inverse: var(--color-neutral-0);
-
-    --color-surface: var(--color-neutral-0);
-    --color-surface-soft: var(--color-neutral-1);
-    --color-surface-muted: var(--color-neutral-2);
-    --color-surface-inverse: var(--color-neutral-10);
-    --color-surface-overlay: rgb(255 255 255 / 0.8);
-
-    --color-border: var(--color-neutral-4);
-    --color-border-hover: var(--color-neutral-5);
-
-    --header-height: 84px;
-  }
-
-  @media (min-width: 1024px) {
-    :root {
-      --header-height: 100px;
-    }
-  }
-
-  /* The global app baseline; component-level typography should build on top of this. */
   body {
-    @apply bg-surface dark:bg-surface-inverse font-body;
+    @apply font-sans antialiased;
   }
 
-  /* Links inherit surrounding text color unless a component opts into a specific token. */
   a {
     color: inherit;
   }
 
-  /* Form controls should follow the same typography as the surrounding UI. */
   button,
   input,
   textarea,
   select {
     font: inherit;
   }
-
-  .container {
-    @apply px-4;
-  }
-
-  /* Lenis requires these base overrides to control scrolling consistently. */
-  html.lenis,
-  html.lenis body {
-    height: auto;
-  }
-
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-
-  .lenis.lenis-smooth iframe {
-    pointer-events: none;
-  }
 }
 
-@tailwind components;
+/*
+ * Layout Overrides: Move Search and Nav Links to Top Bar
+ */
+#nd-docs-layout {
+  --fd-header-height: 3.5rem !important;
+}
 
-@tailwind utilities;
-@layer utilities {
-  .section-padding {
-    padding: min(10vw, 5rem) 0;
+#nd-subnav {
+  display: flex !important;
+}
+
+/* Hide the search trigger inside the sidebar on desktop */
+@media (min-width: 768px) {
+  #nd-sidebar [data-search-full=''],
+  #nd-sidebar [data-search=''],
+  #nd-sidebar button:has(.lucide-search) {
+    display: none !important;
   }
 }

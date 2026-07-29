@@ -10,8 +10,8 @@ export default function Loader({ viewport }: ILoadingState) {
       )}
     >
       <span className="relative flex h-10 w-10">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-        <span className="relative inline-flex rounded-full h-full w-full bg-primary"></span>
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-full w-full bg-brand"></span>
       </span>
     </section>
   );

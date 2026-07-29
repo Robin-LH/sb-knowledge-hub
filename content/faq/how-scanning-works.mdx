@@ -1,0 +1,47 @@
+---
+title: How Scanning Works
+description: Learn about SiteBeacon's automated crawling and auditing engine, scan schedules, and crawler configurations.
+---
+
+# How Scanning Works
+
+SiteBeacon uses a secure, cloud-based crawler to perform deep audits of your website's accessibility, performance, and carbon impact. Here is what happens behind the scenes.
+
+---
+
+## The Auditing Process
+
+When a scan is triggered (either automatically on your schedule, or manually by clicking "Scan Now"), the following steps occur:
+
+1. **Queueing:** Your project is put into our scanner queue. Most scans start within 10 to 30 seconds.
+2. **Crawling:** Our crawler accesses your website's home page and discovers internal links (pages with the same domain name).
+3. **Auditing:** For each discovered page (up to your plan's limit), a headless browser loads the URL. During this process, we run our diagnostics engines:
+   * **Accessibility Engine:** Audits the rendered DOM tree against WCAG AA requirements.
+   * **Performance Engine:** Profiles loading speeds, network requests, CPU usage, and layout shifts.
+   * **Carbon Engine:** Measures total page transfer sizes, content types, and references hosting server headers.
+4. **Processing & Reporting:** The individual page scores are aggregated, trends are calculated, and the results are updated on your dashboard.
+
+---
+
+## Scanner User-Agent & IP Addresses
+
+Our crawler identifies itself with the following User-Agent:
+
+```text
+Mozilla/5.0 (compatible; SiteBeaconBot/1.0; +https://sitebeacon.io/bot)
+```
+
+If your website is behind a firewall, CDN protection (like Cloudflare), or basic authentication, you may need to whitelist our crawler or provide login credentials in your project settings.
+
+---
+
+## Scan Frequency
+
+You can configure your projects to scan on one of the following schedules:
+
+* **Manual Only:** Scans are only run when you trigger them manually.
+* **Daily:** Scans run once every 24 hours.
+* **Weekly (Recommended):** Scans run once a week on a day of your choice.
+* **Monthly:** Scans run once a month.
+
+Daily scans are ideal for fast-moving projects with multiple team members making commits, while weekly scans are perfect for marketing sites and documentation portals.

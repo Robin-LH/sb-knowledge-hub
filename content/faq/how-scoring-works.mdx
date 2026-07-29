@@ -1,0 +1,34 @@
+---
+title: How Scoring Works
+description: Understand how SiteBeacon aggregates individual page metrics into project scores and why scores can shift over time.
+---
+
+# How Scoring Works
+
+SiteBeacon provides high-level scores out of 100 for accessibility, performance, and carbon. Here is how individual page parameters translate into your project-level ratings.
+
+---
+
+## Page-level vs. Project-level Scores
+
+Each scanned page gets its own specific score for accessibility, performance, and carbon. 
+
+Your **Project Score** is the average of all scanned page scores within that project, weighted equally. For example, if you scan 5 pages with accessibility scores of `90, 95, 80, 85, 100`, the project accessibility score will be **90**.
+
+---
+
+## Why Did My Score Change?
+
+It is common to see scores fluctuate between scans. Here are the most frequent reasons:
+
+### 1. Code Changes
+A developer may have deployed updates that fixed or introduced issues (e.g., adding an unoptimized image decreases performance/carbon scores; adding a form without labels decreases the accessibility score).
+
+### 2. Dynamic Content or Third-party Scripts
+If your pages load dynamic content (like news feeds, dynamic comments, or external ad scripts), these assets might change and introduce layout shifts or load heavier resources.
+
+### 3. Server Response Speeds
+Performance scoring is partially dependent on server latency. If your hosting server is experiencing high load or slow network times during a scan, your performance score may decrease slightly.
+
+### 4. Page Discoverability
+If new pages are added to your site, our crawler will discover them. If those new pages have lower scores, they will bring down the project average.

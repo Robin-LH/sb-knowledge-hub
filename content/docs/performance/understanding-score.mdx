@@ -1,0 +1,58 @@
+---
+title: Understanding Your Performance Score
+description: Learn how SiteBeacon measures website performance using Core Web Vitals and other key metrics.
+---
+
+# Understanding Your Performance Score
+
+Your performance score indicates how fast and responsive your website is for users. SiteBeacon measures performance using the same metrics that search engines like Google use to evaluate user experience.
+
+## How the Score Is Calculated
+
+SiteBeacon uses Lighthouse-based analysis to evaluate your website's performance. The overall score is a weighted average of key metrics:
+
+| Metric | Weight | What It Measures |
+|--------|--------|-----------------|
+| Largest Contentful Paint (LCP) | 25% | How quickly the main content becomes visible |
+| Cumulative Layout Shift (CLS) | 25% | Visual stability — how much the page shifts during loading |
+| Interaction to Next Paint (INP) | 25% | Responsiveness to user interactions |
+| First Contentful Paint (FCP) | 15% | Time until the first piece of content appears |
+| Total Blocking Time (TBT) | 10% | How long the main thread is blocked |
+
+## Score Ranges
+
+| Range | Rating | What It Means |
+|-------|--------|--------------|
+| 90–100 | Fast | Excellent performance, great user experience |
+| 50–89 | Moderate | Performance is acceptable but has room for improvement |
+| 0–49 | Slow | Significant performance issues affecting user experience |
+
+## Key Metrics Explained
+
+### Largest Contentful Paint (LCP)
+
+LCP measures how long it takes for the largest piece of content (usually a hero image or heading) to render on screen. Good LCP is **under 2.5 seconds**.
+
+### Cumulative Layout Shift (CLS)
+
+CLS tracks unexpected layout shifts during page load. A low CLS score means elements stay where users expect them. Good CLS is **under 0.1**.
+
+### Interaction to Next Paint (INP)
+
+INP measures the time between a user interaction (click, tap, or key press) and the next visual update. Good INP is **under 200 milliseconds**.
+
+## Common Performance Issues
+
+SiteBeacon identifies specific issues that impact your score:
+
+- **Unoptimized images** — Large images that could be compressed or served in modern formats (WebP, AVIF)
+- **Render-blocking resources** — CSS or JavaScript files that delay page rendering
+- **Excessive DOM size** — Too many HTML elements slowing down rendering and interaction
+- **Unminified assets** — JavaScript and CSS files that could be compressed
+- **Missing caching headers** — Resources being re-downloaded on every visit
+
+## Improving Your Score
+
+Each performance issue in your SiteBeacon report includes the estimated time savings and specific recommendations. Prioritize issues with the largest impact on your LCP and INP metrics.
+
+For deeper understanding, see [What are Core Web Vitals?](/learn/performance/core-web-vitals) in our Learn section.

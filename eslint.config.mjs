@@ -17,6 +17,9 @@ const compat = new FlatCompat({
 const [nextConfig, nextTypescriptConfig, ...nextCoreWebVitalsRest] = nextCoreWebVitals;
 
 export default defineConfig([
+  {
+    ignores: ['.source/**'],
+  },
   nextConfig,
   ...nextCoreWebVitalsRest,
   {
@@ -35,6 +38,8 @@ export default defineConfig([
       '@typescript-eslint': typescriptEslint,
     },
     rules: {
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'error',
     },
   },

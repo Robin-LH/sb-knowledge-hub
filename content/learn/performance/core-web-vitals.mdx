@@ -1,0 +1,55 @@
+---
+title: What are Core Web Vitals?
+description: An in-depth look at Google's Core Web Vitals and how they impact search ranking and user experience.
+---
+
+# What are Core Web Vitals?
+
+**Core Web Vitals** are a set of specific metrics defined by Google to measure the real-world user experience of a webpage. They focus on three key aspects of web performance: loading speed, visual stability, and interactivity.
+
+Google uses these metrics as part of its page experience ranking signal, meaning that optimization directly influences your Search Engine Optimization (SEO).
+
+---
+
+## 1. Largest Contentful Paint (LCP)
+LCP measures **loading performance**. Specifically, it reports the time it takes to render the largest image or text block visible within the viewport, relative to when the page first started loading.
+
+* **Good:** Under 2.5 seconds.
+* **Needs Improvement:** Between 2.5 and 4.0 seconds.
+* **Poor:** Over 4.0 seconds.
+
+### How to improve LCP:
+* Optimize your server response times and database queries.
+* Remove or defer render-blocking JavaScript and CSS.
+* Optimize and compress images (using modern formats like WebP or AVIF).
+* Preload critical hero assets and use CDN caching.
+
+---
+
+## 2. Cumulative Layout Shift (CLS)
+CLS measures **visual stability**. It quantifies how much the page content shifts unexpectedly while it is loading. Frequent layout shifts can lead to users accidentally clicking the wrong buttons or losing their place while reading.
+
+* **Good:** Under 0.1.
+* **Needs Improvement:** Between 0.1 and 0.25.
+* **Poor:** Over 0.25.
+
+### How to improve CLS:
+* Always include `width` and `height` attributes on image and video elements.
+* Reserve space for dynamic content (like ads, embeds, or banners) using CSS aspect-ratios or placeholders.
+* Avoid inserting new content above existing content unless responding to a user interaction.
+* Use CSS `transform` animations rather than animating properties that trigger layout shifts (like `top`, `left`, `margin`).
+
+---
+
+## 3. Interaction to Next Paint (INP)
+INP measures **interactivity** and responsiveness. It replaced First Input Delay (FID) as a Core Web Vital in March 2024. INP assesses the page's overall responsiveness to user inputs (clicks, taps, and keyboard events) by tracking the latency of all interactions throughout the lifespan of a user's visit.
+
+* **Good:** Under 200 milliseconds.
+* **Needs Improvement:** Between 200 and 500 milliseconds.
+* **Poor:** Over 500 milliseconds.
+
+### How to improve INP:
+* Reduce main thread blocking time by breaking up long-running JavaScript tasks.
+* Optimize your event handlers so they execute quickly.
+* Defer non-critical JavaScript to keep the browser responsive.
+* Avoid excessive DOM sizes which slow down layout rendering after interactions.

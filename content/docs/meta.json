@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "---Getting Started",
+    "index",
+    "getting-started",
+    "---Product",
+    "accessibility",
+    "performance",
+    "carbon",
+    "---Management",
+    "projects-workspaces",
+    "reports",
+    "billing",
+    "account-settings",
+    "test"
+  ]
+}
