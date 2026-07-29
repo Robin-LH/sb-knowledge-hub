@@ -1,125 +1,134 @@
-# Devkitlab Next.js Template
+# SiteBeacon Knowledge Hub
 
-A clean starter for building modern web apps with Next.js, TypeScript, and Tailwind CSS.
+A premium, production-ready documentation and help center for SiteBeacon, supporting product guides, educational learning resources, FAQs, and changelogs.
 
-## Stack
+- **Production URL:** `https://help.sitebeacon.io`
 
-- Next.js 16 (App Router)
-- React 19 + TypeScript
-- Tailwind CSS
-- `next-themes` for light/dark mode
-- ESLint + Prettier
-- Husky + lint-staged
+---
+
+## Tech Stack & Features
+
+- **Framework:** Next.js (App Router, Server Components by default)
+- **Styling:** Tailwind CSS v4 (CSS-first configuration)
+- **Documentation Engine:** Fumadocs (Sidebar tree, breadcrumbs, TOC, and metadata pipeline)
+- **Search Engine:** Orama Search (High-performance full-text search API)
+- **Quality Checks:** ESLint, Prettier, and Husky Git hooks (pre-commit checking)
+- **Package Manager:** PNPM (enforced via `only-allow pnpm`)
+
+---
 
 ## Requirements
 
-- Node.js `>= 18.17.0`
-- Yarn `>= 1.22.0`
+- **Node.js:** `>= 18.17.0`
+- **PNPM:** `>= 9.0.0`
 
-This template is Yarn-first. `npm`/`pnpm` are intentionally blocked by `preinstall`.
+---
 
 ## Quick Start
 
-```bash
-yarn
-yarn dev
-```
+1. Install dependencies:
 
-Open `http://localhost:3000`.
+   ```bash
+   pnpm install
+   ```
 
-## First 10 Minutes
+2. Run the local development server:
 
-1. Run the app locally:
+   ```bash
+   pnpm dev
+   ```
 
-```bash
-yarn
-yarn dev
-```
+3. Open `http://localhost:3000` to view the landing page and docs.
 
-2. Update page content in `app/(home)/page.tsx`.
-3. Customize hero and sections in `app/(home)/sub-components/`.
-4. Update app metadata in `app/layout.tsx`.
-5. Run `yarn lint` before your first commit.
+---
 
-## Project Structure
+## Repository Structure
 
 ```plaintext
+content/
+  ├── docs/                 # Product guides and settings documentation
+  ├── learn/                # Educational resources (WCAG, Core Web Vitals, Sustainability)
+  ├── faq/                  # Common questions & answers
+  └── releases/             # Changelogs and release updates
+
 app/
-  layout.tsx                # Root layout
-  provider.tsx              # Global providers (theme, smooth scroll)
-  not-found.tsx             # 404 page
-  global-error.tsx          # App-wide error boundary
-  (home)/
-    page.tsx                # Home route
-    error.tsx               # Route-level error boundary
-    sub-components/         # Home sections
-  _layout/
-    header.tsx
-    footer.tsx
+  ├── (home)/               # Landing page with central search widget
+  ├── api/search/           # Orama search API endpoint
+  ├── docs/                 # Catch-all routes for product documentation
+  ├── learn/                # Catch-all routes for learning guides
+  ├── faq/                  # Catch-all routes for FAQs
+  └── releases/             # Catch-all routes for releases
 
 src/
-  components/               # Reusable UI primitives
-  utils/                    # helper functions
+  ├── components/           # UI components (CustomHeader, FeedbackWidget, Cards)
+  └── lib/
+      ├── source.ts         # Fumadocs collection loaders definition
+      └── create-docs-page.tsx  # Shared page factory logic for catch-all routes
 ```
 
-## Conventions
+---
 
-- Keep route UI in `app/`; keep reusable primitives in `src/components/`.
-- Use `@/` alias imports from `tsconfig.json`.
-- Prefer utility-first styling with Tailwind.
-- Keep components small and composable.
-- Maintain accessibility basics (`alt`, labels, semantic buttons).
+## Managing Content (For Editors & Writers)
 
-## Add a New Home Section
+### 1. File Structure
 
-1. Create a component in `app/(home)/sub-components/feature-section.tsx`.
-2. Import it into `app/(home)/page.tsx`.
-3. Render it where needed.
+All articles are written as Markdown or MDX (`.mdx`) files inside the corresponding sub-folder in `content/`.
 
-Example:
+### 2. Declaring Frontmatter
 
-```tsx
-import FeatureSection from './sub-components/feature-section';
+Every article must declare a YAML frontmatter block at the very top of the file:
 
-const HomePage = () => (
-  <>
-    <HeroSection />
-    <FeatureSection />
-    <AnotherSection />
-  </>
-);
+```mdx
+---
+title: Welcome to SiteBeacon
+description: Get started with SiteBeacon — your all-in-one platform for accessibility, performance, and sustainability monitoring.
+---
+
+SiteBeacon helps you monitor, measure, and improve your website...
 ```
 
-## Error Handling Rules
+_Note: Do not duplicate the `# H1` heading inside the MDX body, as the layout automatically renders the `title` and `description` from your frontmatter._
 
-For App Router error boundaries:
+### 3. Sidebar Order
 
-- `app/(segment)/error.tsx` and `app/global-error.tsx` must be Client Components.
-- `global-error.tsx` must include `<html>` and `<body>`.
-- Use `reset()` to retry rendering.
+The ordering of files and sections in the sidebars is defined using `meta.json` files in the directories. E.g., to order your documents:
+
+```json
+{
+  "pages": [
+    "getting-started",
+    "accessibility",
+    "performance",
+    "carbon",
+    "projects-workspaces",
+    "reports",
+    "billing",
+    "account-settings"
+  ]
+}
+```
+
+---
 
 ## Scripts
 
+Use the following commands during development:
+
 ```bash
-yarn dev      # Start development server
-yarn build    # Build for production
-yarn start    # Start production server
-yarn lint     # Run ESLint
-yarn format   # Run Prettier
+pnpm dev      # Start Next.js development server
+pnpm build    # Build optimized production static pages
+pnpm start    # Start Next.js production server
+pnpm lint     # Run ESLint validation check
+pnpm format   # Run Prettier format formatting
 ```
 
-## Common Mistakes
-
-- Error boundary button does nothing.
-  Use `reset()` instead of deprecated patterns.
-- Lint fails after edits.
-  Run `yarn lint` and fix warnings/errors before push.
-- Styling conflicts in class names.
-  Use `cn()` helper for safe Tailwind class merging.
+---
 
 ## Recommended Before Push
 
+Husky runs checks on every commit. To ensure your commits pass the pipeline, check validation locally beforehand:
+
 ```bash
-yarn lint
-yarn build
+pnpm lint
+pnpm build
 ```
