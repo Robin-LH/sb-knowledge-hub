@@ -6,6 +6,8 @@ import { Clock, ArrowRight } from 'lucide-react';
 import FeedbackWidget from '@/components/feedback';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import type { ComponentType } from 'react';
+import { client } from '../../tina/__generated__/client';
+import TinaPageWrapper from '@/components/tina-page-wrapper';
 
 import type { TOCItemType } from 'fumadocs-core/toc';
 
@@ -46,7 +48,7 @@ export interface GenericSource {
  * for a given Fumadocs source. This avoids duplicating the same page logic across
  * the four Knowledge Hub sections (docs, learn, faq, releases).
  */
-export function createDocsPage(source: GenericSource) {
+export function createDocsPage(source: GenericSource, collectionName: string) {
   async function Page({ params }: DocsPageProps) {
     const { slug } = await params;
     const page = source.getPage(slug);
@@ -71,6 +73,38 @@ export function createDocsPage(source: GenericSource) {
     const relatedPages = allPages
       .filter((p) => p.url !== page.url && p.url.startsWith(parentPath) && p.url !== parentPath)
       .slice(0, 3);
+
+    // Contextual Visual Editing: fetch from Tina GraphQL local database if available
+    const relativePath = slug && slug.length > 0 ? slug.join('/') + '.mdx' : 'index.mdx';
+    let tinaData = null;
+    try {
+      const queries = client.queries as unknown as Record<
+        string,
+        (args: { relativePath: string }) => Promise<unknown>
+      >;
+      tinaData = await queries[collectionName]({ relativePath });
+    } catch {
+      // Local GraphQL server is offline (default behavior during static compilation / production)
+    }
+
+    if (tinaData) {
+      const serializableRelatedPages = relatedPages.map((rp) => ({
+        url: rp.url,
+        data: {
+          title: rp.data.title,
+          description: rp.data.description,
+        },
+      }));
+
+      return (
+        <TinaPageWrapper
+          tinaData={JSON.parse(JSON.stringify(tinaData))}
+          collectionName={collectionName}
+          readingTimeMin={readingTimeMin}
+          relatedPages={serializableRelatedPages}
+        />
+      );
+    }
 
     return (
       <DocsPage

@@ -40,3 +40,7 @@ next-env.d.ts
 
 investigation_report.md
 task.md
+
+# tina
+.tina/
+tina/__generated__/

@@ -18,7 +18,7 @@ const [nextConfig, nextTypescriptConfig, ...nextCoreWebVitalsRest] = nextCoreWeb
 
 export default defineConfig([
   {
-    ignores: ['.source/**'],
+    ignores: ['.source/**', 'tina/__generated__/**'],
   },
   nextConfig,
   ...nextCoreWebVitalsRest,
