@@ -11,6 +11,7 @@
     "projects-workspaces",
     "reports",
     "billing",
-    "account-settings"
+    "account-settings",
+    "hello-world"
   ]
 }
