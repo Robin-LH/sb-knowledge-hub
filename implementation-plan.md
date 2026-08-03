@@ -10,11 +10,13 @@ To get the **best output** (fastest page loads, SEO optimization, and instant cl
 
 ```mermaid
 graph TD
-    A[Content Creator] -->|Edits visually| B(TinaCMS Local/Cloud Admin Panel)
+    A[Content Creator] -->|Edits visually| B(TinaCMS Admin Panel at sb-wiki.vercel.app/admin)
     B -->|Saves edits| C[Local Markdown/MDX Files]
-    C -->|Git commit / push| D[GitHub Repository]
-    D -->|Deploy trigger| E[Vercel Production Build]
-    E -->|Generates static pages| F[Static CDN / Server]
+    C -->|Auto commits/pushes| D[GitHub: dev/staging branch]
+    D -->|Ignored Build Step| E(Vercel Build Canceled)
+    D -->|Create PR & Merge| F[GitHub: main branch]
+    F -->|Triggers Production Build| G[Vercel Production Build]
+    G -->|Generates static pages| H[wiki.sitebeacon.io]
 ```
 
 ### Build & Dev Modes
