@@ -7,16 +7,10 @@
 @source '../node_modules/fumadocs-ui/dist/**/*.js';
 @source '../content/**/*.mdx';
 
-/*
- * SiteBeacon design tokens.
- * Integrated into Tailwind v4's CSS-first @theme system.
- */
 @theme {
   /* Brand palette */
   --color-brand: #124e34;
-  --color-brand-soft: #0c7779;
-  --color-brand-accent: #249e94;
-  --color-brand-light: #3bc1a8;
+  --color-brand-secondary: #388e3c;
 
   /* Typography */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -24,6 +18,16 @@
 
   /* Container */
   --container-2xl: 1280px;
+}
+
+:root {
+  --fd-primary: #388e3c;
+  --fd-primary-foreground: #ffffff;
+}
+
+.dark {
+  --fd-primary: #81c784;
+  --fd-primary-foreground: #124e34;
 }
 
 /*
