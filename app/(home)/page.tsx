@@ -1,15 +1,8 @@
-import type { Metadata } from 'next';
 import { ExploreSections } from './_components/explore-sections';
 import { Footer } from './_components/footer';
 import { Header } from './_components/header';
 import { Hero } from './_components/hero';
 import { PopularTopics } from './_components/popular-topics';
-
-export const metadata: Metadata = {
-  title: 'SiteBeacon Knowledge Hub',
-  description:
-    'Find answers, learn best practices, and get the most out of SiteBeacon. Documentation, guides, FAQs, and release notes.',
-};
 
 export default function HomePage() {
   return (

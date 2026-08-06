@@ -17,7 +17,7 @@ export function Hero() {
             <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-fd-foreground sm:text-5xl lg:text-6xl leading-[1.1]">
               Everything you need to{' '}
               <span className="bg-linear-to-r from-brand to-brand-secondary bg-clip-text text-transparent">
-                optimize
+                optimise
               </span>{' '}
               your website.
             </h1>
