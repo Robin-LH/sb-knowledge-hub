@@ -1,6 +1,6 @@
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
-import { RootProvider } from 'fumadocs-ui/provider/next';
 import './styles.css';
 
 export const metadata: Metadata = {
@@ -10,7 +10,9 @@ export const metadata: Metadata = {
   },
   description:
     'Product documentation, educational resources, FAQs, and release notes for SiteBeacon — website accessibility, performance, and carbon monitoring.',
-  metadataBase: new URL('https://help.sitebeacon.io'),
+  alternates: {
+    canonical: './',
+  },
   openGraph: {
     type: 'website',
     siteName: 'SiteBeacon Knowledge Hub',
@@ -18,10 +20,26 @@ export const metadata: Metadata = {
     description:
       'Product documentation, educational resources, FAQs, and release notes for SiteBeacon.',
     url: 'https://help.sitebeacon.io',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/logo-white.png',
+        width: 1200,
+        height: 630,
+        alt: 'SiteBeacon Knowledge Hub Banner',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SiteBeacon Knowledge Hub',
+    description:
+      'Product documentation, educational resources, FAQs, and release notes for SiteBeacon.',
+    images: ['/logo-white.png'],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 };
 

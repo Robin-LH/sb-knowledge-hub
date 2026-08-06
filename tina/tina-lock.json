@@ -35,21 +35,6 @@
             "isBody": true,
             "templates": [
               {
-                "name": "Cards",
-                "label": "Cards Grid",
-                "fields": [
-                  {
-                    "type": "string",
-                    "name": "className",
-                    "label": "Class Name",
-                    "namespace": ["docs", "body", "Cards", "className"],
-                    "searchable": true,
-                    "uid": false
-                  }
-                ],
-                "namespace": ["docs", "body", "Cards"]
-              },
-              {
                 "name": "Card",
                 "label": "Card Item",
                 "fields": [
@@ -120,21 +105,6 @@
             "label": "Body",
             "isBody": true,
             "templates": [
-              {
-                "name": "Cards",
-                "label": "Cards Grid",
-                "fields": [
-                  {
-                    "type": "string",
-                    "name": "className",
-                    "label": "Class Name",
-                    "namespace": ["learn", "body", "Cards", "className"],
-                    "searchable": true,
-                    "uid": false
-                  }
-                ],
-                "namespace": ["learn", "body", "Cards"]
-              },
               {
                 "name": "Card",
                 "label": "Card Item",
@@ -207,21 +177,6 @@
             "isBody": true,
             "templates": [
               {
-                "name": "Cards",
-                "label": "Cards Grid",
-                "fields": [
-                  {
-                    "type": "string",
-                    "name": "className",
-                    "label": "Class Name",
-                    "namespace": ["faq", "body", "Cards", "className"],
-                    "searchable": true,
-                    "uid": false
-                  }
-                ],
-                "namespace": ["faq", "body", "Cards"]
-              },
-              {
                 "name": "Card",
                 "label": "Card Item",
                 "fields": [
@@ -292,21 +247,6 @@
             "label": "Body",
             "isBody": true,
             "templates": [
-              {
-                "name": "Cards",
-                "label": "Cards Grid",
-                "fields": [
-                  {
-                    "type": "string",
-                    "name": "className",
-                    "label": "Class Name",
-                    "namespace": ["releases", "body", "Cards", "className"],
-                    "searchable": true,
-                    "uid": false
-                  }
-                ],
-                "namespace": ["releases", "body", "Cards"]
-              },
               {
                 "name": "Card",
                 "label": "Card Item",
@@ -1407,17 +1347,6 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "DocsBodyCardsFilter" },
-        "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "className" },
-            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } }
-          }
-        ]
-      },
-      {
-        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "DocsBodyCardFilter" },
         "fields": [
           {
@@ -1441,14 +1370,6 @@
         "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "DocsBodyFilter" },
         "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "Cards" },
-            "type": {
-              "kind": "NamedType",
-              "name": { "kind": "Name", "value": "DocsBodyCardsFilter" }
-            }
-          },
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "Card" },
@@ -1602,17 +1523,6 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "LearnBodyCardsFilter" },
-        "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "className" },
-            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } }
-          }
-        ]
-      },
-      {
-        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "LearnBodyCardFilter" },
         "fields": [
           {
@@ -1636,14 +1546,6 @@
         "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "LearnBodyFilter" },
         "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "Cards" },
-            "type": {
-              "kind": "NamedType",
-              "name": { "kind": "Name", "value": "LearnBodyCardsFilter" }
-            }
-          },
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "Card" },
@@ -1797,17 +1699,6 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "FaqBodyCardsFilter" },
-        "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "className" },
-            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } }
-          }
-        ]
-      },
-      {
-        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "FaqBodyCardFilter" },
         "fields": [
           {
@@ -1831,14 +1722,6 @@
         "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "FaqBodyFilter" },
         "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "Cards" },
-            "type": {
-              "kind": "NamedType",
-              "name": { "kind": "Name", "value": "FaqBodyCardsFilter" }
-            }
-          },
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "Card" },
@@ -1992,17 +1875,6 @@
       },
       {
         "kind": "InputObjectTypeDefinition",
-        "name": { "kind": "Name", "value": "ReleasesBodyCardsFilter" },
-        "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "className" },
-            "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "StringFilter" } }
-          }
-        ]
-      },
-      {
-        "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "ReleasesBodyCardFilter" },
         "fields": [
           {
@@ -2026,14 +1898,6 @@
         "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "ReleasesBodyFilter" },
         "fields": [
-          {
-            "kind": "InputValueDefinition",
-            "name": { "kind": "Name", "value": "Cards" },
-            "type": {
-              "kind": "NamedType",
-              "name": { "kind": "Name", "value": "ReleasesBodyCardsFilter" }
-            }
-          },
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "Card" },

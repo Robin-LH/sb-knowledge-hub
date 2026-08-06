@@ -5,6 +5,15 @@ const config = {
   images: {
     remotePatterns: [{ hostname: '*' }],
   },
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/index.html',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX();
