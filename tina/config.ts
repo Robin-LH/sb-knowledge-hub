@@ -25,17 +25,6 @@ const tinaFields: TinaField[] = [
     isBody: true,
     templates: [
       {
-        name: 'Cards',
-        label: 'Cards Grid',
-        fields: [
-          {
-            type: 'string',
-            name: 'className',
-            label: 'Class Name',
-          },
-        ],
-      },
-      {
         name: 'Card',
         label: 'Card Item',
         fields: [

@@ -1,15 +1,14 @@
+import FeedbackWidget from '@/components/feedback';
+import TinaPageWrapper from '@/components/tina-page-wrapper';
+import type { TOCItemType } from 'fumadocs-core/toc';
+import { Card, Cards } from 'fumadocs-ui/components/card';
 import { DocsBody, DocsDescription, DocsPage, DocsTitle } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
+import { ArrowRight, Clock } from 'lucide-react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Clock, ArrowRight } from 'lucide-react';
-import FeedbackWidget from '@/components/feedback';
-import { Card, Cards } from 'fumadocs-ui/components/card';
+import { notFound } from 'next/navigation';
 import type { ComponentType } from 'react';
 import { client } from '../../tina/__generated__/client';
-import TinaPageWrapper from '@/components/tina-page-wrapper';
-
-import type { TOCItemType } from 'fumadocs-core/toc';
 
 interface DocsPageProps {
   params: Promise<{ slug?: string[] }>;
@@ -108,12 +107,11 @@ export function createDocsPage(source: GenericSource, collectionName: string) {
 
     return (
       <DocsPage
-        toc={page.data.toc}
         full={page.data.full}
+        toc={page.data.toc}
         tableOfContent={{
           style: 'clerk',
         }}
-        className="max-w-3xl"
       >
         <div className="flex items-center gap-2 text-xs text-fd-muted-foreground mb-4">
           <span className="flex items-center gap-1 font-medium bg-fd-muted px-2 py-0.5 rounded">
