@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   },
   description:
     'Product documentation, educational resources, FAQs, and release notes for SiteBeacon — website accessibility, performance, and carbon monitoring.',
+  metadataBase: new URL('https://help.sitebeacon.io'),
   alternates: {
     canonical: './',
   },
