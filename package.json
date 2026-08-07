@@ -10,7 +10,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "tinacms dev -c \"next dev --turbopack\"",
-    "build": "export NODE_OPTIONS=\"--max-old-space-size=4096\" && if [ -z \"$TINA_TOKEN\" ]; then tinacms build --local; else tinacms build; fi && if [ \"$VERCEL_ENV\" = \"production\" ]; then rm -rf public/admin; fi && next build",
+    "build": "export NODE_OPTIONS=\"--max-old-space-size=4096\" && if [ -z \"$TINA_TOKEN\" ]; then tinacms build --local --skip-cloud-checks; else tinacms build; fi && if [ \"$VERCEL_ENV\" = \"production\" ]; then rm -rf public/admin; fi && next build",
     "start": "tinacms build && next start",
     "format": "prettier . --write",
     "lint": "eslint --max-warnings=0 .",
